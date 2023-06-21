@@ -10,9 +10,7 @@ class TestApp:
         '''requires appearance ratings to be integers between 1 and 5, inclusive.'''
         
         with app.app_context():
-            Appearance.query.delete()
-            db.session.commit()
-
+            
             with pytest.raises(ValueError):
                 Appearance(rating=0)
             
